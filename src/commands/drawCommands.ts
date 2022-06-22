@@ -3,7 +3,7 @@ import { getCurrentMousePosition } from "./commonCommands";
 
 export const drawRectangle = (width: number, length: number) => {
   let { x, y } = getCurrentMousePosition();
-  robot.setMouseDelay(200);
+  robot.setMouseDelay(500);
   x += width;
   robot.mouseToggle("down");
   robot.dragMouse(x, y);
