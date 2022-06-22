@@ -55,10 +55,9 @@ async function wsMessageHandler(wsStream: Duplex, data: any) {
 export async function wsConnectionHandler(ws: WebSocket) {
   console.log("Connection started");
   const wsStream: Duplex = createWebSocketStream(ws, { decodeStrings: false });
-  // eslint-disable-next-line no-restricted-syntax
-  for await (const message of wsStream) {
-    await wsMessageHandler(wsStream, message);
-  }
+  ws.on("message", async (data) => {
+    await wsMessageHandler(wsStream, data);
+  });
 
   ws.on("close", () => {
     console.log("Connection closed");
