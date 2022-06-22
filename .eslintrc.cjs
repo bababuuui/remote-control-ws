@@ -25,6 +25,7 @@ module.exports = {
     "no-console": "off",
     "import/prefer-default-export": "off",
     "import/extensions": "off",
-    "radix":"off"
+    "radix":"off",
+    "no-case-declarations":"off"
   },
 };
