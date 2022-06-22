@@ -11,7 +11,7 @@ async function wsMessageHandler(wsStream: Duplex, data: any) {
   console.log("received: %s", data);
   const [command, ...args] = data.toString().split(" ");
   const { x, y } = getCurrentMousePosition();
-  console.log(`Mouse position: ${x} , ${y}`);
+  console.log(`Current mouse position: ${x} , ${y}`);
   let webSocketResponse = command;
   switch (command) {
     case "mouse_up":
@@ -55,7 +55,7 @@ async function wsMessageHandler(wsStream: Duplex, data: any) {
 export async function wsConnectionHandler(ws: WebSocket) {
   console.log("Connection started");
   const wsStream: Duplex = createWebSocketStream(ws, { decodeStrings: false });
-  ws.on("message", async (data) => {
+  wsStream.on("data", async (data) => {
     await wsMessageHandler(wsStream, data);
   });
 
