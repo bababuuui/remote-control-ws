@@ -65,5 +65,6 @@ export async function wsConnectionHandler(ws: WebSocket) {
 
   process.on("SIGINT", () => {
     ws.close();
+    process.exit(0);
   });
 }
