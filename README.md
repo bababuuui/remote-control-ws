@@ -18,13 +18,24 @@
 
 * App served @ `http://localhost:8181` without nodemon
 
----
+## Checking notes
 
-**All commands**
+Create .env file
+WS_PORT= (port for websocket server)
+PORT= (port for http server)
+Default values are 8080 for WS, and 3000 for http.
 
-Command | Description
---- | ---
-`npm run dev` | App served @ `http://localhost:8181` with nodemon
-`npm run start` | App served @ `http://localhost:8181` without nodemon
+
+Добавил вэйт на 500 мс перед командами:
+draw_* чтобы было легче протестировать
+const WAIT_BEFORE_DRAW_MS = 500; в websocket_server/handlers.ts
+
+
+
+| Command         | Description                                          |
+|-----------------|------------------------------------------------------|
+| `npm run dev`   | App served @ `http://localhost:8181` with nodemon    |
+| `npm run start` | App served @ `http://localhost:8181` without nodemon |
 
 **Note**: replace `npm` with `yarn` in `package.json` if you use yarn.
+
